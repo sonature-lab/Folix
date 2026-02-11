@@ -33,6 +33,7 @@ node_modules/
 
 # Claude Code
 .claude/
+CLAUDE.md
 
 # TimSquad (project management working directory)
 .timsquad/
