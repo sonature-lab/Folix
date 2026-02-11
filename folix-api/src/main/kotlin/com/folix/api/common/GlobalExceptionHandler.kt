@@ -2,6 +2,8 @@ package com.folix.api.common
 
 import com.folix.application.exception.DuplicateEntityException
 import com.folix.application.exception.EntityNotFoundException
+import com.folix.application.exception.ExternalApiException
+import com.folix.application.exception.MarketDataNotFoundException
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -41,6 +43,30 @@ class GlobalExceptionHandler {
         return ResponseEntity
             .status(HttpStatus.CONFLICT)
             .body(ApiResponse.error("RES_002", ex.message ?: "Resource already exists"))
+    }
+
+    /**
+     * 시장 데이터를 찾을 수 없을 때 발생하는 예외 처리.
+     * HTTP 404 Not Found 반환.
+     */
+    @ExceptionHandler(MarketDataNotFoundException::class)
+    fun handleMarketDataNotFound(ex: MarketDataNotFoundException): ResponseEntity<ApiResponse<Nothing>> {
+        logger.warn("Market data not found: {}", ex.message)
+        return ResponseEntity
+            .status(HttpStatus.NOT_FOUND)
+            .body(ApiResponse.error("MKT_001", ex.message ?: "Market data not found"))
+    }
+
+    /**
+     * 외부 API 호출 실패 예외 처리.
+     * HTTP 502 Bad Gateway 반환.
+     */
+    @ExceptionHandler(ExternalApiException::class)
+    fun handleExternalApiError(ex: ExternalApiException): ResponseEntity<ApiResponse<Nothing>> {
+        logger.error("External API error: {}", ex.message)
+        return ResponseEntity
+            .status(HttpStatus.BAD_GATEWAY)
+            .body(ApiResponse.error("EXT_001", ex.message ?: "External API error"))
     }
 
     /**

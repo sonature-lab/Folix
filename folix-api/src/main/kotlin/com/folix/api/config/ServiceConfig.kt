@@ -3,9 +3,13 @@ package com.folix.api.config
 import com.folix.application.port.out.AccountRepository
 import com.folix.application.port.out.AssetRepository
 import com.folix.application.port.out.DailyPriceRepository
+import com.folix.application.port.out.ExchangeRateProvider
+import com.folix.application.port.out.ExchangeRateRepository
+import com.folix.application.port.out.MarketDataProvider
 import com.folix.application.port.out.TransactionRepository
 import com.folix.application.service.AccountService
 import com.folix.application.service.AssetService
+import com.folix.application.service.MarketDataService
 import com.folix.application.service.PortfolioService
 import com.folix.application.service.TransactionService
 import org.springframework.context.annotation.Bean
@@ -53,6 +57,23 @@ class ServiceConfig {
             transactionRepository,
             assetRepository,
             dailyPriceRepository
+        )
+    }
+
+    @Bean
+    fun marketDataService(
+        marketDataProviders: List<MarketDataProvider>,
+        exchangeRateProvider: ExchangeRateProvider,
+        dailyPriceRepository: DailyPriceRepository,
+        exchangeRateRepository: ExchangeRateRepository,
+        assetRepository: AssetRepository
+    ): MarketDataService {
+        return MarketDataService(
+            marketDataProviders,
+            exchangeRateProvider,
+            dailyPriceRepository,
+            exchangeRateRepository,
+            assetRepository
         )
     }
 }

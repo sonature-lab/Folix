@@ -114,6 +114,18 @@
 | PORT_001 | 400 | Invalid currency code | 잘못된 통화 코드 |
 | PORT_002 | 400 | Invalid date range | 잘못된 기간 범위 |
 
+### 4.5 MKT (시장 데이터)
+
+| Code | HTTP | Message | Description |
+|------|------|---------|-------------|
+| MKT_001 | 404 | Market data not found | 시장 데이터를 찾을 수 없음 |
+
+### 4.6 EXT (외부 연동)
+
+| Code | HTTP | Message | Description |
+|------|------|---------|-------------|
+| EXT_001 | 502 | External API error | 외부 API 호출 실패 |
+
 ---
 
 ## 5. 에러 코드 네이밍 규칙

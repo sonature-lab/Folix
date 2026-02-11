@@ -1,0 +1,52 @@
+# Folix Infrastructure Configuration Sample
+# Copy this file to application.yml and customize values
+
+folix:
+  external:
+    yahoo:
+      base-url: https://query1.finance.yahoo.com
+      timeout-ms: 10000
+
+    coingecko:
+      base-url: https://api.coingecko.com/api/v3
+      api-key: ${COINGECKO_API_KEY:}  # Optional: CoinGecko API key for higher rate limits
+      timeout-ms: 10000
+
+    ecb:
+      base-url: https://www.ecb.europa.eu/stats/eurofxref
+      timeout-ms: 10000
+
+    cache:
+      price-ttl-minutes: 5    # Market price cache TTL
+      rate-ttl-minutes: 60    # Exchange rate cache TTL
+
+spring:
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: ${REDIS_PASSWORD:}
+      timeout: 5000
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: false
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/folix
+    username: ${DB_USERNAME:folix}
+    password: ${DB_PASSWORD:}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 30000
+
+logging:
+  level:
+    com.folix.infrastructure: DEBUG
+    org.springframework.web.client: DEBUG

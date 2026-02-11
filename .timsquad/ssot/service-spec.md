@@ -385,6 +385,22 @@
 | **Endpoint** | `GET /prices/{symbol}` |
 | **설명** | 자산 시세 조회 |
 
+#### Path Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|:--------:|-------------|
+| symbol | string | ✅ | 자산 심볼 (e.g. AAPL, BTC) |
+
+#### Response (200 OK)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| symbol | string | 자산 심볼 |
+| price | string | 현재 시세 (BigDecimal) |
+| currency | string | 통화 코드 |
+| source | string | 데이터 소스 (YahooFinance, CoinGecko, DB_FALLBACK) |
+| date | string | 조회 날짜 (ISO 8601) |
+
 ---
 
 ### 8.2 환율 조회
@@ -401,6 +417,16 @@
 | from | string | ✅ | 원본 통화 |
 | to | string | ✅ | 대상 통화 |
 | date | string | ❌ | 특정 날짜 (기본: 최신) |
+
+#### Response (200 OK)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| baseCurrency | string | 원본 통화 |
+| quoteCurrency | string | 대상 통화 |
+| rate | string | 환율 (BigDecimal) |
+| date | string | 환율 날짜 |
+| source | string | 데이터 소스 (ECB, DB_FALLBACK) |
 
 ---
 

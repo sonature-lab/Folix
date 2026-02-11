@@ -33,3 +33,19 @@ springdoc:
     path: /api-docs
   swagger-ui:
     path: /swagger-ui
+
+folix:
+  external:
+    yahoo:
+      base-url: ${YAHOO_BASE_URL:https://query1.finance.yahoo.com}
+      timeout-ms: ${YAHOO_TIMEOUT_MS:10000}
+    coingecko:
+      base-url: ${COINGECKO_BASE_URL:https://api.coingecko.com/api/v3}
+      api-key: ${COINGECKO_API_KEY:}
+      timeout-ms: ${COINGECKO_TIMEOUT_MS:10000}
+    ecb:
+      base-url: ${ECB_BASE_URL:https://www.ecb.europa.eu/stats/eurofxref}
+      timeout-ms: ${ECB_TIMEOUT_MS:10000}
+    cache:
+      price-ttl-minutes: ${CACHE_PRICE_TTL:5}
+      rate-ttl-minutes: ${CACHE_RATE_TTL:60}

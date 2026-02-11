@@ -12,79 +12,79 @@
 
 | ID | 요건 | 우선순위 | 상태 |
 |----|-----|:--------:|:----:|
-| FR-MONEY-001 | Currency: companion object로 USD, KRW, BTC 등 사전 정의 + of(code) 팩토리 | P0 | 🔲 |
-| FR-MONEY-002 | Money: BigDecimal + Currency, 연산자 오버로딩 (plus, minus, times) | P0 | 🔲 |
-| FR-MONEY-003 | Kotlin DSL: `val price = 10_000.USD`, `val btc = 0.5.BTC` | P0 | 🔲 |
-| FR-MONEY-004 | Wallet: 다통화 보유, totalIn()으로 기준통화 변환 | P0 | 🔲 |
-| FR-MONEY-005 | ExchangeRate: 환율 변환, 역변환 | P0 | 🔲 |
-| FR-MONEY-006 | 통화 불일치 연산 시 require()로 즉시 실패 | P0 | 🔲 |
-| FR-MONEY-007 | 나눗셈 시 반드시 scale + RoundingMode 지정 | P0 | 🔲 |
+| FR-MONEY-001 | Currency: companion object로 USD, KRW, BTC 등 사전 정의 + of(code) 팩토리 | P0 | ✅ |
+| FR-MONEY-002 | Money: BigDecimal + Currency, 연산자 오버로딩 (plus, minus, times) | P0 | ✅ |
+| FR-MONEY-003 | Kotlin DSL: `val price = 10_000.USD`, `val btc = 0.5.BTC` | P0 | ✅ |
+| FR-MONEY-004 | Wallet: 다통화 보유, totalIn()으로 기준통화 변환 | P0 | ✅ |
+| FR-MONEY-005 | ExchangeRate: 환율 변환, 역변환 | P0 | ✅ |
+| FR-MONEY-006 | 통화 불일치 연산 시 require()로 즉시 실패 | P0 | ✅ |
+| FR-MONEY-007 | 나눗셈 시 반드시 scale + RoundingMode 지정 | P0 | ✅ |
 
 ### 1.2 Asset 관리 (Phase 1)
 
 | ID | 요건 | 우선순위 | 상태 |
 |----|-----|:--------:|:----:|
-| FR-ASSET-001 | 자산 등록 (주식, 크립토, 채권, 현금, 부동산 등) | P0 | 🔲 |
-| FR-ASSET-002 | 자산 유형별 분류 (AssetType, AssetClass) | P0 | 🔲 |
-| FR-ASSET-003 | 자산 목록 조회 및 필터링 | P0 | 🔲 |
+| FR-ASSET-001 | 자산 등록 (주식, 크립토, 채권, 현금, 부동산 등) | P0 | ✅ |
+| FR-ASSET-002 | 자산 유형별 분류 (AssetType, AssetClass) | P0 | ✅ |
+| FR-ASSET-003 | 자산 목록 조회 및 필터링 | P0 | ✅ |
 
 ### 1.3 Account 관리 (Phase 1)
 
 | ID | 요건 | 우선순위 | 상태 |
 |----|-----|:--------:|:----:|
-| FR-ACCT-001 | 계좌 등록 (증권, 은행, 거래소 등) | P0 | 🔲 |
-| FR-ACCT-002 | 계좌별 자산/거래 분리 관리 | P0 | 🔲 |
+| FR-ACCT-001 | 계좌 등록 (증권, 은행, 거래소 등) | P0 | ✅ |
+| FR-ACCT-002 | 계좌별 자산/거래 분리 관리 | P0 | ✅ |
 
 ### 1.4 Transaction 관리 (Phase 1)
 
 | ID | 요건 | 우선순위 | 상태 |
 |----|-----|:--------:|:----:|
-| FR-TXN-001 | 거래 기록 (매수/매도/배당/이자/입금/출금) | P0 | 🔲 |
+| FR-TXN-001 | 거래 기록 (매수/매도/배당/이자/입금/출금) | P0 | ✅ |
 | FR-TXN-002 | CSV/JSON 일괄 임포트 | P0 | 🔲 |
-| FR-TXN-003 | 거래 내역 조회 (기간별, 계좌별, 자산별) | P0 | 🔲 |
+| FR-TXN-003 | 거래 내역 조회 (기간별, 계좌별, 자산별) | P0 | ✅ |
 
 ### 1.5 Portfolio (Phase 1)
 
 | ID | 요건 | 우선순위 | 상태 |
 |----|-----|:--------:|:----:|
-| FR-PORT-001 | 포트폴리오 요약 (총 자산가치, 수익률) | P0 | 🔲 |
-| FR-PORT-002 | 보유 포지션 목록 (수량, 현재가, 평가금액) | P0 | 🔲 |
-| FR-PORT-003 | 자산 배분 현황 (유형별, 통화별 비중) | P0 | 🔲 |
+| FR-PORT-001 | 포트폴리오 요약 (총 자산가치, 수익률) | P0 | ✅ |
+| FR-PORT-002 | 보유 포지션 목록 (수량, 현재가, 평가금액) | P0 | ✅ |
+| FR-PORT-003 | 자산 배분 현황 (유형별, 통화별 비중) | P0 | ✅ |
 
 ### 1.6 Performance 계산 (Phase 2)
 
 | ID | 요건 | 우선순위 | 상태 |
 |----|-----|:--------:|:----:|
-| FR-PERF-001 | TWR (Time-Weighted Return) 계산 | P0 | 🔲 |
-| FR-PERF-002 | IRR (Internal Rate of Return) — Newton-Raphson 방법 | P0 | 🔲 |
-| FR-PERF-003 | 연환산 변동성 (Annualized Volatility) | P1 | 🔲 |
-| FR-PERF-004 | 샤프비율 (Sharpe Ratio) | P1 | 🔲 |
-| FR-PERF-005 | 최대낙폭 MDD (Maximum Drawdown) | P1 | 🔲 |
+| FR-PERF-001 | TWR (Time-Weighted Return) 계산 | P0 | ✅ |
+| FR-PERF-002 | IRR (Internal Rate of Return) — Newton-Raphson 방법 | P0 | ✅ |
+| FR-PERF-003 | 연환산 변동성 (Annualized Volatility) | P1 | ✅ |
+| FR-PERF-004 | 샤프비율 (Sharpe Ratio) | P1 | ✅ |
+| FR-PERF-005 | 최대낙폭 MDD (Maximum Drawdown) | P1 | ✅ |
 
 ### 1.7 Simulation (Phase 2)
 
 | ID | 요건 | 우선순위 | 상태 |
 |----|-----|:--------:|:----:|
-| FR-SIM-001 | Scenario: "만약 ~했더라면" 시나리오 정의 | P1 | 🔲 |
-| FR-SIM-002 | MonteCarlo: 10,000회 시뮬레이션 → 퍼센타일 결과 | P1 | 🔲 |
-| FR-SIM-003 | NetWorthTimeline: 순자산 시계열 추적 | P1 | 🔲 |
-| FR-SIM-004 | Projection: 미래 자산 예측 | P1 | 🔲 |
+| FR-SIM-001 | Scenario: "만약 ~했더라면" 시나리오 정의 | P1 | ✅ |
+| FR-SIM-002 | MonteCarlo: 10,000회 시뮬레이션 → 퍼센타일 결과 | P1 | ✅ |
+| FR-SIM-003 | NetWorthTimeline: 순자산 시계열 추적 | P1 | ✅ |
+| FR-SIM-004 | Projection: 미래 자산 예측 | P1 | ✅ |
 
 ### 1.8 Taxonomy (Phase 2)
 
 | ID | 요건 | 우선순위 | 상태 |
 |----|-----|:--------:|:----:|
-| FR-TAX-001 | 트리 구조 분류 체계 (자산유형, 지역, 산업, 통화 축) | P1 | 🔲 |
-| FR-TAX-002 | 하나의 자산이 여러 분류에 가중치(%)로 매핑 | P1 | 🔲 |
+| FR-TAX-001 | 트리 구조 분류 체계 (자산유형, 지역, 산업, 통화 축) | P1 | ✅ |
+| FR-TAX-002 | 하나의 자산이 여러 분류에 가중치(%)로 매핑 | P1 | ✅ |
 
 ### 1.9 외부 연동 (Phase 4)
 
 | ID | 요건 | 우선순위 | 상태 |
 |----|-----|:--------:|:----:|
-| FR-EXT-001 | Yahoo Finance 주식 시세 조회 | P1 | 🔲 |
-| FR-EXT-002 | CoinGecko 크립토 시세 조회 | P1 | 🔲 |
-| FR-EXT-003 | ECB 환율 조회 | P1 | 🔲 |
-| FR-EXT-004 | Redis 캐싱으로 외부 API 호출 최소화 | P1 | 🔲 |
+| FR-EXT-001 | Yahoo Finance 주식 시세 조회 | P1 | ✅ |
+| FR-EXT-002 | CoinGecko 크립토 시세 조회 | P1 | ✅ |
+| FR-EXT-003 | ECB 환율 조회 | P1 | ✅ |
+| FR-EXT-004 | Redis 캐싱으로 외부 API 호출 최소화 | P1 | ✅ |
 
 ---
 

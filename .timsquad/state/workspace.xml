@@ -3,36 +3,37 @@
   <metadata>
     <project>Folix</project>
     <created>2026-02-11T16:18:54+0900</created>
-    <last-updated>2026-02-11T16:18:54+0900</last-updated>
+    <last-updated>2026-02-11T21:30:00+0900</last-updated>
     <version>1.0</version>
   </metadata>
 
   <!-- 현재 활성 에이전트 -->
   <active-session>
-    <agent>tsq-planner</agent>
-    <started-at>2026-02-11T16:18:54+0900</started-at>
-    <mode>planning</mode>
+    <agent>tsq-developer</agent>
+    <started-at>2026-02-11T21:30:00+0900</started-at>
+    <mode>implementation</mode>
   </active-session>
 
   <!-- ============================================================
        현재 진행 중인 작업
        ============================================================ -->
   <current-task>
-    <id>TASK-001</id>
-    <title>PRD 작성</title>
-    <description>제품 요구사항 정의서 초안 작성</description>
-    <agent>tsq-planner</agent>
-    <phase>planning</phase>
-    <started-at>2026-02-11T16:18:54+0900</started-at>
-    <status>in_progress</status>
+    <id>TASK-005</id>
+    <title>Phase 5: Documentation + Deployment</title>
+    <description>README, ADR 작성 및 Prometheus 연동, OCI 배포 준비</description>
+    <agent>tsq-developer</agent>
+    <phase>implementation</phase>
+    <started-at>2026-02-11T21:30:00+0900</started-at>
+    <status>pending</status>
     <ssot-refs>
-      <ref path="ssot/prd.md">출력 대상</ref>
+      <ref path="README.md">프로젝트 문서</ref>
+      <ref path="ssot/adr/">Architecture Decision Records</ref>
     </ssot-refs>
     <progress>
-      <step done="false">배경 및 목표 정의</step>
-      <step done="false">타겟 사용자 정의</step>
-      <step done="false">성공 지표 정의</step>
-      <step done="false">범위 정의</step>
+      <step done="false">README.md 업데이트</step>
+      <step done="false">ADR 작성</step>
+      <step done="false">Prometheus 연동</step>
+      <step done="false">Docker 배포 설정</step>
     </progress>
   </current-task>
 
@@ -40,30 +41,36 @@
        대기 중인 작업 (우선순위 순)
        ============================================================ -->
   <pending-tasks>
-    <!--
-    <task id="TASK-002" priority="1">
-      <title>요구사항 정의</title>
-      <description>기능/비기능 요건 작성</description>
-      <assigned-to>tsq-planner</assigned-to>
-      <phase>planning</phase>
-      <depends-on>TASK-001</depends-on>
-      <estimated-effort>medium</estimated-effort>
-    </task>
-    -->
   </pending-tasks>
 
   <!-- ============================================================
        완료된 작업 (최근 10개 유지)
        ============================================================ -->
   <completed-tasks>
-    <!--
-    <task id="TASK-000" completed-at="2026-02-11T16:18:54+0900">
-      <title>프로젝트 초기화</title>
-      <agent>system</agent>
-      <output>TimSquad 프로젝트 구조 생성</output>
-      <duration-minutes>1</duration-minutes>
+    <task id="TASK-001" completed-at="2026-02-11T16:30:00+0900">
+      <title>Phase 1: Core Domain Implementation</title>
+      <agent>tsq-developer</agent>
+      <output>Money, Asset, Account, Transaction, Portfolio 도메인 모델 및 단위 테스트</output>
+      <duration-minutes>30</duration-minutes>
     </task>
-    -->
+    <task id="TASK-002" completed-at="2026-02-11T17:30:00+0900">
+      <title>Phase 2: Performance Engine</title>
+      <agent>tsq-developer</agent>
+      <output>TWR, IRR, RiskMetrics, MonteCarlo, Simulation 도메인 및 테스트</output>
+      <duration-minutes>60</duration-minutes>
+    </task>
+    <task id="TASK-003" completed-at="2026-02-11T18:30:00+0900">
+      <title>Phase 3: API + Infrastructure</title>
+      <agent>tsq-developer</agent>
+      <output>Spring Boot, JPA, Controllers, PostgreSQL, DTO 레이어</output>
+      <duration-minutes>60</duration-minutes>
+    </task>
+    <task id="TASK-004" completed-at="2026-02-11T21:30:00+0900">
+      <title>Phase 4: External Integration</title>
+      <agent>tsq-developer</agent>
+      <output>Yahoo Finance, CoinGecko, ECB 클라이언트 + Redis 캐싱</output>
+      <duration-minutes>180</duration-minutes>
+    </task>
   </completed-tasks>
 
   <!-- ============================================================
@@ -173,34 +180,24 @@
        ============================================================ -->
   <next-steps>
     <step order="1">
-      <action>PRD 작성 완료</action>
-      <agent>tsq-planner</agent>
-      <output>ssot/prd.md</output>
+      <action>README.md 업데이트</action>
+      <agent>tsq-developer</agent>
+      <output>README.md</output>
     </step>
     <step order="2">
-      <action>요구사항 정의</action>
-      <agent>tsq-planner</agent>
-      <output>ssot/requirements.md</output>
+      <action>ADR 작성</action>
+      <agent>tsq-developer</agent>
+      <output>ssot/adr/</output>
     </step>
     <step order="3">
-      <action>API 명세 작성</action>
-      <agent>tsq-planner</agent>
-      <output>ssot/service-spec.md</output>
+      <action>Prometheus 연동</action>
+      <agent>tsq-developer</agent>
+      <output>Monitoring 설정</output>
     </step>
     <step order="4">
-      <action>데이터 설계</action>
-      <agent>tsq-planner</agent>
-      <output>ssot/data-design.md</output>
-    </step>
-    <step order="5">
-      <action>User 승인 요청</action>
-      <agent>tsq-planner</agent>
-      <requires-approval>true</requires-approval>
-    </step>
-    <step order="6">
-      <action>Implementation Phase 시작</action>
+      <action>OCI 배포 준비</action>
       <agent>tsq-developer</agent>
-      <phase>implementation</phase>
+      <output>Docker Compose, 배포 스크립트</output>
     </step>
   </next-steps>
 
